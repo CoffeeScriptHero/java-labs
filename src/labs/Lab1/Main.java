@@ -12,16 +12,8 @@ public class Main {
             try {
                 return Integer.parseInt(input);
             } catch (Exception e) {
-                System.out.println("Вы ввели не число. Попробуйте еще раз");
+                System.out.println("Ви ввели не число. Спробуйте ще раз");
             }
-        }
-    }
-
-    public static void validateLoopData(int x, int y, Scanner scanner) {
-        while (!(x < y)) {
-            System.out.println("Некорректные значения цикла. Попробуйте еще раз");
-            x = acceptNumber(scanner, "Введите первое значение: ");
-            y = acceptNumber(scanner, "Введите второе значение (должно быть больше первого): ");
         }
     }
 
@@ -32,23 +24,23 @@ public class Main {
         int C7 = 1309 % 7;
         int C = C3;
 
-        System.out.printf("C2: %d, знак первой операции : -\n", C2);
+        System.out.printf("C2: %d, знак першої операції: -\n", C2);
         System.out.println("C3: " + C3);
-        System.out.printf("C5: %d, знак второй операции : -\n", C5);
-        System.out.printf("C7: %d, тип i и j = byte\n", C7);
+        System.out.printf("C5: %d, знак другої операції: -\n", C5);
+        System.out.printf("C7: %d, тип i та j = byte\n\n", C7);
 
         Scanner scanner = new Scanner(System.in);
         int a, b, n, m;
 
-        a = acceptNumber(scanner, "Введите a: ");
-        n = acceptNumber(scanner, "Введите n (должно быть больше a): ");
-        b = acceptNumber(scanner, "Введите b: ");
-        m = acceptNumber(scanner, "Введите m (должно быть больше b): ");
+        a = acceptNumber(scanner, "Введіть a: ");
+        n = acceptNumber(scanner, "Введіть n: ");
+        b = acceptNumber(scanner, "Введіть b: ");
+        m = acceptNumber(scanner, "Введіть m: ");
 
-        validateLoopData(a, n, scanner);
-        validateLoopData(b, m, scanner);
+        if (a > n || b > m) throw new ArithmeticException("Incorrect loop boundaries");
 
         if (a <= C && n >= C) throw new ArithmeticException("Division by zero");
+        //щоб не допустити ділення на нуль
 
         float sum = 0;
 
@@ -57,6 +49,6 @@ public class Main {
                 sum += (float)((byte)(i - j)) / ((byte)i - C);
             }
         }
-        System.out.printf("Сумма: %.4f\n", sum);
+        System.out.printf("Сума: %.3f\n", sum);
     }
 }
