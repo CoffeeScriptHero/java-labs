@@ -18,11 +18,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int C2 = 1309 % 2;
-        int C3 = 1309 % 3;
-        int C5 = 1309 % 5;
-        int C7 = 1309 % 7;
-        int C = C3;
+        final int C2 = 1309 % 2;
+        final int C3 = 1309 % 3;
+        final int C5 = 1309 % 5;
+        final int C7 = 1309 % 7;
+        final int C = C3;
 
         System.out.printf("C2: %d, знак першої операції: -\n", C2);
         System.out.println("C3: " + C3);
@@ -40,13 +40,12 @@ public class Main {
         if (a > n || b > m) throw new ArithmeticException("Incorrect loop boundaries");
 
         if (a <= C && n >= C) throw new ArithmeticException("Division by zero");
-        //щоб не допустити ділення на нуль
 
         float sum = 0;
 
-        for (int i = a; i < n; i++) {
-            for (int j = b; j < m; j++) {
-                sum += (float)((byte)(i - j)) / ((byte)i - C);
+        for (byte i = (byte) a; i <= n; i++) {
+            for (byte j = (byte) b; j <= m; j++) {
+                sum += (float)(i - j) / (i - C);
             }
         }
         System.out.printf("Сума: %.3f\n", sum);

@@ -17,6 +17,7 @@ public class Main {
     return resultMatrix;
   }
 
+
   public static void printMatrix(double[][] matrix) {
     System.out.println("Матриця: ");
     for (int i = 0; i < matrix.length; i++) {
@@ -34,7 +35,7 @@ public class Main {
 
     for (int i = 0; i < matrix[0].length; i++) {
       min = matrix[0][i];
-      for (int j = 0; j < matrix.length; j++) {
+      for (int j = 1; j < matrix.length; j++) {
         if (min > matrix[j][i]) min = matrix[j][i];
       }
       sum += min;
@@ -59,9 +60,21 @@ public class Main {
 //    double[][] matrix2 = {{1, 75, 9, 4, 2, 7, 4}, {9, 4, 3, 29, 5, 4, 2}};
 //    double[][] matrix1 = {{0, 0, 9}, {0, 3, 0}, {0, 0, 0}};
 //    double[][] matrix2 = {{4, 1}, {2, 8}, {1, 5}};
-    double[][] matrix1 = {{2.4, -3.1, 1}, {5.8, 4.65, -2.1}};
-    double[][] matrix2 = {{-7, 5.9}, {2, -1.6}, {4, 3}};
-    double[][] incorrectMatrix = {{2, 1}, {4, 7}, {9, 3}, {500, 300}};
+    double[][] matrix1 = {
+      {2.4, -3.1, 1},
+      {5.8, 4.65, -2.1}
+    };
+    double[][] matrix2 = {
+      {-7, 5.9},
+      {2, -1.6},
+      {4, 3}
+    };
+    double[][] incorrectMatrix = {
+      {2, 1},
+      {4, 7},
+      {9, 3},
+      {500, 300}
+    };
     double[][] matrix3 = multiplyMatrices(matrix1, matrix2);
 
     printMatrix(matrix3);
@@ -69,6 +82,5 @@ public class Main {
     double sum = sumMinColNumbers(matrix3);
     System.out.printf("Сума найменших елементів кожного стовпця результ. матриці: %.2f\n", sum);
 
-    double[][] matrix4 = multiplyMatrices(matrix1, incorrectMatrix);
   }
 }
