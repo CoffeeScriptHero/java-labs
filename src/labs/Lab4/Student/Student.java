@@ -1,19 +1,20 @@
-package labs.Lab4;
+package labs.Lab4.Student;
 
-import java.util.Arrays;
 
-public class Student {
+import java.util.ArrayList;
+
+public class Student{
     // 5 приватних полів класу Student
     private String name;
     private String favoriteLesson;
     private int age;
-    private int[] grades;
+    private ArrayList<Integer> grades;
     private float averageGrade;
 
 
     // Конструктор для ініціалізації студента. Задаються усі поля окрім середьного балу,
     // оскільки він визначається методом класу calculateAverage
-    public Student(String name, String favoriteLesson, int age, int[] grades) {
+    public Student(String name, String favoriteLesson, int age, ArrayList<Integer> grades) {
         this.name = name;
         this.favoriteLesson = favoriteLesson;
         this.age = age;
@@ -28,7 +29,7 @@ public class Student {
         for (int grade : grades) {
             average += grade;
         }
-        return average / grades.length;
+        return average / grades.size();
     }
 
     // Геттер для віку студента
@@ -55,6 +56,6 @@ public class Student {
     @Override
     public String toString() {
         return String.format("Student{name='%s', favoriteLesson='%s', age=%d, grades=%s, averageGrade=%.2f}",
-                name, favoriteLesson, age, Arrays.toString(grades), averageGrade);
+                name, favoriteLesson, age, grades, averageGrade);
     }
 }
